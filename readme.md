@@ -14,8 +14,8 @@ To improve the contrast and highlight subtle features in astronomical imagery, C
 #### 3. Visualization and Storage
 -	Enhanced images are visualized using with grayscale and saved as high-quality .png plots for inspection.
 
-<img width="920" alt="image" src="Datasets/enhanced_images/Raw_Observation_035_Set4_enhanced_plot.png" />  
-<img width="920" alt="image" src="Datasets\enhanced_images\Raw_Observation_018_Set2_enhanced_plot.png" />  
+<img width="400" height="400" alt="image" src="images/Raw_Observation_035_Set4_enhanced_plot.png" />  
+<img width="400" height="400" alt="image" src="images/Raw_Observation_015_Set2_enhanced_plot.png" />  
 
 ### 2. Automated Annotation Generation
 To prepare data for supervised learning, annotations indicating the locations of stars and streaks were generated through an automated image processing pipeline. This eliminates manual annotation and ensures consistency across the dataset.
@@ -60,9 +60,9 @@ Regions with area < 30. Centroid is used to estimate a circular region, which is
 - Streak: 
 Elongated regions with area > 40. Bounding box is derived directly from the region's bounding rectangle.
 
-<img width="920" alt="image" src="annotaion_data/image.png" />
-<img width="920" alt="image" src="annotaion_data/image2.png" />  
-<img width="920" alt="image" src="annotaion_data/image3.png" /> 
+<img width="920" alt="image" src="annotation_data/image.png" />
+<img width="920" alt="image" src="annotation_data/image2.png" />  
+<img width="920" alt="image" src="annotation_data/image3.png" /> 
 
 ### 4. Model Training and Evaluation
 #### 1. Model Architecture
@@ -89,6 +89,13 @@ Each epoch performs the following:
 - Best model based on validation loss is saved
 - Training and validation losses per epoch are logged to training_log.csv
 
+#### Model Training results:-
+
+Training: Detection Accuracy: 59.70%
+
+Testing: Detection Accuracy: 75.00%
+
+#### Train Loss: 0.1689, Validation Loss: 0.0862
 
 ### 6. Inference and Prediction
 #### 1. Prediction Pipeline
@@ -103,10 +110,20 @@ The trained Faster R-CNN model is used to detect and classify stars and streaks 
     - Detections with confidence scores ≥ 0.5 are retained
     - Class labels are mapped to human-readable format
 
-<img width="920" alt="image" src="Datasets/output_with_annotations/Raw_Observation_002_Set1_enhanced_plot_annotated.png" /> 
-<img width="920" alt="image" src="Datasets/output_with_annotations/Raw_Observation_034_Set4_enhanced_plot_annotated.png" />
+<img width="500" height="500" alt="image" src="images/Raw_Observation_025_Set3_enhanced_plot_annotated.png" /> 
+
+<img width="500" height="500" alt="image" src="images/Raw_Observation_035_Set4_enhanced_plot_annotated.png" />
 
 #### 2. Centroid Calculation
 For each valid bounding box:
 - The centroid is computed using:
 - Coordinates are printed with corresponding label and confidence score
+
+<img width="500" height="500" alt="image" src="images/Raw_Observation_001_Set1_enhanced_plot_annotated.png" /> 
+
+#### Detected Objects with Centroid Coordinates:
+- Star (Score: 0.99) -> Centroid: (x=351.50, y=387.20)
+- Star (Score: 0.97) -> Centroid: (x=148.10, y=106.87)
+- Star (Score: 0.96) -> Centroid: (x=526.77, y=474.30)
+- Streak (Score: 0.94) -> Centroid: (x=153.10, y=199.76)
+- Star (Score: 0.85) -> Centroid: (x=441.34, y=521.68)
