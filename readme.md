@@ -1,3 +1,33 @@
+### Before runnig the script
+Ensure the given directory structure before running the script
+
+your_project/<br>
+├── R_CNN.ipynb<br>
+├── annotation.ipynb<br>
+├── data_preprocessing.ipynb<br>
+├── requirements.txt
+
+├── model_output/<br>
+│   ├── model_checkpoint.pth<br>
+│   └── training_log.csv<br>
+
+├── Datasets/<br>
+│   ├── Raw_Images/<br>
+│   └── Reference_Images/<br>
+
+└── annotation_data/<br>
+    
+
+You just need to ensure the given directories and naming. The CSV files and model_checkpoint.pth will be automatically generated when the Script is run
+
+- Running Script:-
+    - Setup the virtual environment using python -m venv "virtual environment name"
+    - Ensure you download all dependencies in requirements.txt
+    - Open jupyter notebooks and run in the given order
+        - data_preprocessing.ipynb
+        - annotation.ipynb
+        - R_CNN.ipynb
+
 ### 1. Data Preprocessing and Enhancement
 The initial step in the pipeline involves preprocessing raw astronomical images to enhance visual features such as stars and streaks. This is crucial for improving annotation quality and aiding the model in learning meaningful patterns.
 
